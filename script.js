@@ -21,9 +21,21 @@ let matchedPairs = 0;
 const moveDisplay = document.getElementById('move-count');
 const timerDisplay = document.getElementById('timer');
 
-let timer;
 let seconds = 0;
+let timer;
 let gameStarted = false;
+const timerDisplay = document.getElementById("timer");
+
+function startTimer() {
+  timer = setInterval(() => {
+    seconds++;
+    timerDisplay.textContent = `Time: ${seconds}s`;
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
 
 function startTimer() {
   timer = setInterval(() => {
