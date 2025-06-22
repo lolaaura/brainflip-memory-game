@@ -1,0 +1,119 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  margin: 20px;
+}
+
+#move-count {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.game-board {
+  width: 640px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.card {
+  width: 140px;
+  height: 140px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-back {
+  background-color: #3498db;
+}
+
+.card-front {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+#restart-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 15px 0;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#restart-btn:hover {
+  background-color: #1e874b;
+}
+
+/* Responsive Layout */
+@media (max-width: 700px) {
+  .game-board {
+    width: 90vw;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .card {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 24px;
+  }
+
+  h1, #move-count, #timer {
+    font-size: 18px;
+  }
+
+  #restart-btn, #gameover-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+#gameover-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#gameover-btn:hover {
+  background-color: #c0392b;
+}
