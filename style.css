@@ -10,19 +10,18 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: sans-serif;
   text-align: center;
-  margin: 0;
+  background-image: url('https://t3.ftcdn.net/jpg/04/42/60/54/240_F_442605415_MKMybrYCzDgEw6soSWMToDSJ1FlHem08.jpg'); /* Replace this with your own */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   min-height: 100vh;
-  /* soft diagonal gradient */
-  background: linear-gradient(135deg, #f9e7e7 0%, #f6f9ff 50%, #eaf8f0 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 40px 20px;
-  color: #333;
+  margin: 0;
+  padding: 0;
 }
+
 
 /* =====  Headings & Info ===== */
 h1 {
@@ -209,4 +208,9 @@ h1 {
 
 .card.matched .card-inner {
   animation: matchPop 0.4s ease-in-out;
+}
+
+.controls {
+  margin: 15px 0;
+  text-align: center;
 }

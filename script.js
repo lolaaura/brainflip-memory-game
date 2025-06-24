@@ -25,6 +25,11 @@ let seconds = 0;
 let timer;
 let gameStarted = false;
 
+// 🎵 Sound effects
+const flipSound = new Audio('sounds/flip.mp3');
+const matchSound = new Audio('sounds/match.mp3');
+const winSound = new Audio('sounds/win.mp3');
+
 function startTimer() {
   timer = setInterval(() => {
     seconds++;
@@ -35,7 +40,6 @@ function startTimer() {
 function stopTimer() {
   clearInterval(timer);
 }
-
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
@@ -49,6 +53,7 @@ cards.forEach(card => {
     }
 
     card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+    flipSound.play(); // 🔊 Flip sound
     flippedCards.push(card);
 
     if (flippedCards.length === 2) {
@@ -58,21 +63,29 @@ cards.forEach(card => {
       const card1 = flippedCards[0].querySelector('.card-front').textContent;
       const card2 = flippedCards[1].querySelector('.card-front').textContent;
 
-      if (matchedPairs === 8) {
-  stopTimer();
+      if (card1 === card2) {
+        matchSound.play(); // 🔊 Match sound
+        matchedPairs++;
 
-  // 🎉 Confetti burst
-  confetti({
-    particleCount: 150,
-    spread: 90,
-    origin: { y: 0.6 }
-  });
+        flippedCards[0].classList.add('matched');
+        flippedCards[1].classList.add('matched');
+        flippedCards = [];
 
-  setTimeout(() => {
-    alert(`🎉 You won in ${moveCount} moves and ${seconds} seconds!`);
-  }, 500);
-}
+        // Check for win
+        if (matchedPairs === 8) {
+          stopTimer();
 
+          winSound.play(); // 🔊 Win sound
+          confetti({
+            particleCount: 150,
+            spread: 90,
+            origin: { y: 0.6 }
+          });
+
+          setTimeout(() => {
+            alert(`🎉 You won in ${moveCount} moves and ${seconds} seconds!`);
+          }, 500);
+        }
       } else {
         lockBoard = true;
         setTimeout(() => {
@@ -100,6 +113,7 @@ document.getElementById('restart-btn').addEventListener('click', () => {
   // Flip all cards face down
   cards.forEach(card => {
     card.querySelector('.card-inner').style.transform = 'rotateY(0deg)';
+    card.classList.remove('matched'); // remove animation class
   });
 
   // Shuffle cards again
