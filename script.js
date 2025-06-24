@@ -24,7 +24,6 @@ const timerDisplay = document.getElementById('timer');
 let seconds = 0;
 let timer;
 let gameStarted = false;
-const timerDisplay = document.getElementById("timer");
 
 function startTimer() {
   timer = setInterval(() => {
@@ -37,16 +36,6 @@ function stopTimer() {
   clearInterval(timer);
 }
 
-function startTimer() {
-  timer = setInterval(() => {
-    seconds++;
-    timerDisplay.textContent = `Time: ${seconds}s`;
-  }, 1000);
-}
-
-function stopTimer() {
-  clearInterval(timer);
-}
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
