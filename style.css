@@ -154,3 +154,59 @@ h1 {
 #gameover-btn:hover {
   background: #c0392b;
 }
+
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
+
+@keyframes matchPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.card.matched .card-inner {
+  animation: matchPop 0.4s ease-in-out;
+}
