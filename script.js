@@ -58,17 +58,21 @@ cards.forEach(card => {
       const card1 = flippedCards[0].querySelector('.card-front').textContent;
       const card2 = flippedCards[1].querySelector('.card-front').textContent;
 
-      if (card1 === card2) {
-        matchedPairs++;
-        flippedCards = [];
+      if (matchedPairs === 8) {
+  stopTimer();
 
-        // Check for win
-        if (matchedPairs === 8) {
-          stopTimer();
-          setTimeout(() => {
-            alert(`🎉 You won in ${moveCount} moves and ${seconds} seconds!`);
-          }, 500);
-        }
+  // 🎉 Confetti burst
+  confetti({
+    particleCount: 150,
+    spread: 90,
+    origin: { y: 0.6 }
+  });
+
+  setTimeout(() => {
+    alert(`🎉 You won in ${moveCount} moves and ${seconds} seconds!`);
+  }, 500);
+}
+
       } else {
         lockBoard = true;
         setTimeout(() => {
